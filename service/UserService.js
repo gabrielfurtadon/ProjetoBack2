@@ -8,6 +8,18 @@ module.exports = {
             senha: senha
         })
         return user
+    },
+    delete: async function(codigo) {
+        return await UserModel.destroy({where: { codigo: codigo }})
+    },
+    update: async function(codigo, nome, usuario, senha) {
+        return await UserModel.update({nome: nome, usuario: usuario, senha : senha}, {
+            where: { codigo: codigo }
+        })
+    },
+    getById: async function(codigo) {
+        const user =  await UserModel.findByPk(codigo)
+        return user
     }
 }
 

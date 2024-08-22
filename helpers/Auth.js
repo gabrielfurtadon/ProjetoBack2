@@ -10,9 +10,13 @@ module.exports = {
         jwt.verify(token, '123!@#', (err, obj) => {
             if(err) res.status(403).json({mensagem: "token inválido"})
                 else {
-                    req.usuario = obj.usuario
+                    req.user = {
+                        usuario : obj.usuario,
+                        codigo: obj.codigo
+                    }
                     next()
                 }
         })
-    }
+    },
+    
 }

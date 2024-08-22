@@ -4,11 +4,11 @@ const router = express.Router();
 const sequelize = require('../helpers/bd.js');
 const User = require('../model/User.js'); 
 
-router.get("/auth", async (req, res) => {
+router.get("/login", async (req, res) => {
     const { usuario, senha } = req.body;
 
     try {
-        const user = await User.findOne({ where: { nome: usuario } });
+        const user = await User.findOne({ where: { usuario: usuario } });
         
         if (!user) {
             return res.status(403).json({ logged: false, mensagem: 'Usuário não encontrado' });
@@ -16,7 +16,7 @@ router.get("/auth", async (req, res) => {
         const isPasswordValid = user.senha === senha; 
 
         if (isPasswordValid) {
-            const token = jwt.sign({ usuario: usuario }, '123!@#', { expiresIn: '30 min' });
+            const token = jwt.sign({ codigo: user.codigo, usuario: user.usuario , isAdmin : user.isAdmin}, '123!@#', { expiresIn: '30 min' });
             res.json({ logged: true, token: token });
         } else {
             res.status(403).json({ logged: false, mensagem: 'Senha inválida' });

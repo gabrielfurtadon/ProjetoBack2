@@ -10,8 +10,13 @@ const UserModel = sequelize.define('Users',
         },
         nome: DataTypes.STRING,
         usuario: DataTypes.STRING,
-        senha: DataTypes.STRING
+        senha: DataTypes.STRING,
+        isAdmin: {  
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
+        }
     }
-)
+);
 
 module.exports = UserModel
