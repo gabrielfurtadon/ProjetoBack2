@@ -63,10 +63,14 @@ router.put("/:id", validaAcesso, async (req, res) => {
         if(userParamAdmin.isAdmin == false) {
             let [result] = await UserService.update(id, nome, usuario, senha)
             res.json(sucess(result))
+        }else if(Number(res.params.id) == req.user.codigo){
+                let [result] = await UserService.update(id, nome, usuario, senha)
+                res.json(sucess(result))
         }else {
             res.status(400).json(fail("Voce pode atualizar outros usuários administradores"))
         }
-    }else {
+            
+        } else {
         res.status(500).json(fail("Falha ao atualizar o usuario"))
     }
 })
