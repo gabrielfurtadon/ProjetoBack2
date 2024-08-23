@@ -3,17 +3,26 @@ var path = require('path');
 const Auth = require( './helpers/Auth.js')
 require('dotenv').config({ path: '.env.postgres' });
 const User = require('./model/User.js')
+const InvestmentAccount = require('./model/InvestmentAccount');
+const Asset = require('./model/Asset');
+const Transaction = require('./model/Transaction');
 const sequelize = require('./helpers/bd'); 
 
 var app = express();
-LoginRouter = require('./controller/login.js')
+LoginRouter = require('./controller/loginController.js')
 UserRouter = require('./controller/UserController.js')
+TransactionRouter = require('./controller/TransactionController.js');
+AssetRouter = require('./controller/AssetController.js');
+InvestmentAccountRouter = require('./controller/InvestmentAccountController.js');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); 
 
 app.use('/', LoginRouter)
 app.use('/user', UserRouter)
+app.use('/transaction', TransactionRouter)
+app.use('/asset', AssetRouter)
+app.use('/account', InvestmentAccountRouter)
 
 sequelize.sync({ alter: true }).then(async () => {
     console.log('Tabelas sincronizadas.');
