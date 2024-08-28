@@ -11,6 +11,7 @@ const UserModel = sequelize.define('Users',
         nome: DataTypes.STRING,
         usuario: DataTypes.STRING,
         senha: DataTypes.STRING,
+        email: DataTypes.STRING,
         isAdmin: {  
             type: DataTypes.BOOLEAN,
             defaultValue: false,

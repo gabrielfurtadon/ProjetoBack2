@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const TransactionService = require('../service/TransactionService');
+const { validaAcesso } = require("../helpers/Auth.js");
 
 // Comprar um ativo
-router.post('/buy', async (req, res) => {
+router.post('/buy', validaAcesso, async (req, res) => {
     const { codigo, assetId, quantity } = req.body;
 
     try {
@@ -15,7 +16,7 @@ router.post('/buy', async (req, res) => {
 });
 
 // Vender um ativo
-router.post('/sell', async (req, res) => {
+router.post('/sell', validaAcesso, async (req, res) => {
     const { codigo, assetId, quantity } = req.body;
 
     try {

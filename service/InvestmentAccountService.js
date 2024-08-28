@@ -16,7 +16,7 @@ module.exports = {
 
         account = await InvestmentAccount.create({
             codigo: codigo,
-            balance: 0.0
+            balance: 1000
         });
 
         return account;

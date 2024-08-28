@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const InvestmentAccountService = require('../service/InvestmentAccountService');
+const { validaAcesso } = require("../helpers/Auth.js");
 
-router.post('/create/:codigo', async (req, res) => {
+router.post('/create/:codigo', validaAcesso,  async (req, res) => {
     const { codigo } = req.params; 
 
     try {
@@ -14,7 +15,7 @@ router.post('/create/:codigo', async (req, res) => {
 });
 
 
-router.get('/balance/:codigo', async (req, res) => {
+router.get('/balance/:codigo', validaAcesso, async (req, res) => {
     const { codigo } = req.params;
 
     try {
@@ -26,7 +27,7 @@ router.get('/balance/:codigo', async (req, res) => {
 });
 
 // Visualizar histórico de transações
-router.get('/transactions/:codigo', async (req, res) => {
+router.get('/transactions/:codigo', validaAcesso, async (req, res) => {
     const { codigo } = req.params;
 
     try {

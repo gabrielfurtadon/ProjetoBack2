@@ -7,6 +7,9 @@ const InvestmentAccount = require('./model/InvestmentAccount');
 const Asset = require('./model/Asset');
 const Transaction = require('./model/Transaction');
 const sequelize = require('./helpers/bd'); 
+const installRouter = require('./controller/InstallAPI.js');
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger.json')
 
 var app = express();
 LoginRouter = require('./controller/loginController.js')
@@ -18,11 +21,13 @@ InvestmentAccountRouter = require('./controller/InvestmentAccountController.js')
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); 
 
+app.use('/database', installRouter);
 app.use('/', LoginRouter)
 app.use('/user', UserRouter)
 app.use('/transaction', TransactionRouter)
 app.use('/asset', AssetRouter)
 app.use('/account', InvestmentAccountRouter)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 sequelize.sync({ alter: true }).then(async () => {
     console.log('Tabelas sincronizadas.');

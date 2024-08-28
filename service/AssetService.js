@@ -22,5 +22,20 @@ module.exports = {
 
     getAllAssets: async function() {
         return await Asset.findAll();
+    },
+
+    deleteAsset: async function(assetId) {
+    
+        const asset = await Asset.findByPk(assetId);
+
+        if (!asset) {
+            throw new Error('Ativo não encontrado');
+        }
+
+        await asset.destroy();
+
+        return { message: 'Ativo excluído com sucesso' };
     }
+
+
 };
