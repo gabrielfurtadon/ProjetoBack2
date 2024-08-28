@@ -1,0 +1,64 @@
+{
+    "info": {
+        "_postman_id": "cd7eec52-37f3-4fb5-996c-2f4961c8379d",
+        "name": "InvestmentAccount",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Saldo",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/account/balance/15",
+                    "path": [
+                        "account",
+                        "balance",
+                        "15"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Historico",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/account/transactions/7",
+                    "path": [
+                        "account",
+                        "transactions",
+                        "7"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Create Acc",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:3000/account/create/15",
+                    "path": [
+                        "account",
+                        "create",
+                        "15"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

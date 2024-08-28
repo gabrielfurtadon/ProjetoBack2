@@ -1,0 +1,43 @@
+{
+    "info": {
+        "_postman_id": "9d266f4a-6c6c-4459-b337-c3685971da38",
+        "name": "Helpers",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Install Database",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:3000/database/install",
+                    "path": [
+                        "database",
+                        "install"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "swagger",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/api-docs",
+                    "path": [
+                        "api-docs"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

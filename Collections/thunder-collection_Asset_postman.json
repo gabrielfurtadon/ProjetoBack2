@@ -1,0 +1,97 @@
+{
+    "info": {
+        "_postman_id": "49926174-80e5-458a-8f31-140a954ad648",
+        "name": "Asset",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Criar Asset",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:3000/asset/create",
+                    "path": [
+                        "asset",
+                        "create"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\" : \"Dolar\",\n  \"symbol\": \"DL\",\n  \"currentPrice\": 150\n}"
+                }
+            }
+        },
+        {
+            "name": "Update Asset",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "localhost:3000/asset/update/2",
+                    "path": [
+                        "asset",
+                        "update",
+                        "2"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"currentPrice\": 160\n}"
+                }
+            }
+        },
+        {
+            "name": "Listar Assets",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/asset/",
+                    "path": [
+                        "asset"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "Delete Asset",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "localhost:3000/asset/delete/2",
+                    "path": [
+                        "asset",
+                        "delete",
+                        "2"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}
